@@ -1,0 +1,17 @@
+body {
+  /* background: #030305; */
+  background: url('../images/bg.jpg') no-repeat center;
+  box-sizing: border-box;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Titillium Web', sans-serif;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.content-container {
+  flex: 1 0 auto;
+  margin-bottom: 50px;
+  width: 100%;
+}
