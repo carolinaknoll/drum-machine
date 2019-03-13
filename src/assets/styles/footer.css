@@ -32,7 +32,7 @@
 }
 
 .footer-bottom .fa {
-  color: #CC4949;
+  color: #1ad1ff;
 }
 
 .footer .social-list {
@@ -42,11 +42,10 @@
 }
 
 .social-small-box {
-  background: #CC6666;
+  background: #1ad1ff;
   -moz-box-shadow: -1px 3px 20px -1px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: -1px 3px 20px -1px rgba(0, 0, 0, 0.4);
   box-shadow: -1px 3px 20px -1px rgba(0, 0, 0, 0.4);
-  color: #f2ff63;
   display: inline-block;
   font-size: 40px;
   height: 60px;

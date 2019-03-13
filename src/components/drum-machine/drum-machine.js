@@ -10,46 +10,56 @@ export default class DrumMachine extends Component {
 
 	render() {
     return (
-      <div className="drum-container">
-        <div className="keys">
+      <div id="drum-machine" className="drum-container">
+        <div id="display" className="display"></div>
 
-          <div data-key="81" className="key">
+        <div className="drum-pad-block">
+          <div id="Q" className="drum-pad">
+            <audio id="Q" className="clip" src="../../assets/sounds/beep-10.wav"></audio>
             <kbd>Q</kbd>
           </div>
 
-          <div data-key="87" className="key">
+          <div id="W" className="drum-pad">
+            <audio id="W" className="clip" src="../../assets/sounds/fail-buzzer-04.wav"></audio>
             <kbd>W</kbd>
           </div>
 
-          <div data-key="69" className="key">
+          <div id="E" className="drum-pad">
+            <audio id="E" className="clip" src="../../assets/sounds/hihat.wav"></audio>
             <kbd>E</kbd>
           </div>
         </div>
 
-        <div className="keys">
-          <div data-key="65" className="key">
+        <div className="drum-pad-block">
+          <div id="A" className="drum-pad">
+            <audio id="A" className="clip" src="../../assets/sounds/magic-chime-02.wav"></audio>
             <kbd>A</kbd>
           </div>
 
-          <div data-key="83" className="key">
+          <div id="S" className="drum-pad">
+            <audio id="S" className="clip" src="../../assets/sounds/openhat.wav"></audio>
             <kbd>S</kbd>
           </div>
 
-          <div data-key="68" className="key">
+          <div id="D" className="drum-pad">
+            <audio id="D" className="clip" src="../../assets/sounds/ride.wav"></audio>
             <kbd>D</kbd>
           </div>
         </div>
 
-        <div className="keys">
-          <div data-key="90" className="key">
+        <div className="drum-pad-block">
+          <div id="Z" className="drum-pad">
+            <audio id="Z" className="clip" src="../../assets/sounds/snare.wav"></audio>
             <kbd>Z</kbd>
           </div>
 
-          <div data-key="88" className="key">
+          <div id="X" className="drum-pad">
+            <audio id="X" className="clip" src="../../assets/sounds/squeeze-toy-5.wav"></audio>
             <kbd>X</kbd>
           </div>
 
-          <div data-key="67" className="key">
+          <div id="C" className="drum-pad">
+            <audio id="C" className="clip" src="../../assets/sounds/whip-whoosh-01.wav"></audio>
             <kbd>C</kbd>
           </div>
         </div>
