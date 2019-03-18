@@ -8,6 +8,29 @@ export default class DrumMachine extends Component {
     };
   }
 
+  componentDidMount() {
+    document.addEventListener('keydown', this.playSound);
+    document.addEventListener('click', this.playSound);
+  }
+
+  playSound = (e) => {
+    let pressedKey = e.key;
+    let clickedKey = e.target.id;
+
+    if (!pressedKey && !clickedKey) {
+      return;
+    }
+
+    let selectedKey = pressedKey ? pressedKey : clickedKey;
+
+    selectedKey = selectedKey.toUpperCase();
+
+    let audio = document.querySelector(`audio#${selectedKey}`);
+
+    audio.currentTime = 0;
+    audio.play();
+  }
+
 	render() {
     return (
       <div id="drum-machine" className="drum-container">
@@ -15,51 +38,51 @@ export default class DrumMachine extends Component {
 
         <div className="drum-pad-block">
           <div id="Q" className="drum-pad">
-            <audio id="Q" className="clip" src="../../assets/sounds/beep-10.wav"></audio>
+            <audio id="Q" className="clip" src="static/beep.wav"></audio>
             <kbd>Q</kbd>
           </div>
 
           <div id="W" className="drum-pad">
-            <audio id="W" className="clip" src="../../assets/sounds/fail-buzzer-04.wav"></audio>
+            <audio id="W" className="clip" src="static/fail-buzzer-04.wav"></audio>
             <kbd>W</kbd>
           </div>
 
           <div id="E" className="drum-pad">
-            <audio id="E" className="clip" src="../../assets/sounds/hihat.wav"></audio>
+            <audio id="E" className="clip" src="static/hihat.wav"></audio>
             <kbd>E</kbd>
           </div>
         </div>
 
         <div className="drum-pad-block">
           <div id="A" className="drum-pad">
-            <audio id="A" className="clip" src="../../assets/sounds/magic-chime-02.wav"></audio>
+            <audio id="A" className="clip" src="static/magic-chime-02.wav"></audio>
             <kbd>A</kbd>
           </div>
 
           <div id="S" className="drum-pad">
-            <audio id="S" className="clip" src="../../assets/sounds/openhat.wav"></audio>
+            <audio id="S" className="clip" src="static/openhat.wav"></audio>
             <kbd>S</kbd>
           </div>
 
           <div id="D" className="drum-pad">
-            <audio id="D" className="clip" src="../../assets/sounds/ride.wav"></audio>
+            <audio id="D" className="clip" src="static/ride.wav"></audio>
             <kbd>D</kbd>
           </div>
         </div>
 
         <div className="drum-pad-block">
           <div id="Z" className="drum-pad">
-            <audio id="Z" className="clip" src="../../assets/sounds/snare.wav"></audio>
+            <audio id="Z" className="clip" src="static/snare.wav"></audio>
             <kbd>Z</kbd>
           </div>
 
           <div id="X" className="drum-pad">
-            <audio id="X" className="clip" src="../../assets/sounds/squeeze-toy-5.wav"></audio>
+            <audio id="X" className="clip" src="static/squeeze-toy-5.wav"></audio>
             <kbd>X</kbd>
           </div>
 
           <div id="C" className="drum-pad">
-            <audio id="C" className="clip" src="../../assets/sounds/whip-whoosh-01.wav"></audio>
+            <audio id="C" className="clip" src="static/whip-whoosh-01.wav"></audio>
             <kbd>C</kbd>
           </div>
         </div>
