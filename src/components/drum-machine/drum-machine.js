@@ -27,8 +27,38 @@ export default class DrumMachine extends Component {
 
     let audio = document.querySelector(`audio#${selectedKey}`);
 
-    audio.currentTime = 0;
-    audio.play();
+    if (audio) {
+      this.displayAudioName(audio);
+      audio.currentTime = 0;
+      audio.play();
+    }
+  }
+
+  // get audio src > audio.getAttribute('src');
+  // loop through it and replace -s for spaces
+  // uppercase first element after space
+
+  displayAudioName = (audio) => {
+    let audioSource = audio.getAttribute('src');
+
+    let cleanedAudioSource = this.cleanAudioSource(audioSource);
+    document.getElementById('display').innerHTML = cleanedAudioSource;
+  }
+
+  cleanAudioSource = (audioSource) => {
+    // todo: think of a regexp-only or native-code-only solution for the two lines below
+    audioSource = audioSource.replace(/-/g, ' ').replace(/.wav/g, '');
+    audioSource = audioSource.substring(audioSource.lastIndexOf("/") + 1);
+
+    return this.titleCaseAudioSource(audioSource);
+  }
+
+  titleCaseAudioSource = (audioSource) => {
+    audioSource = audioSource.split(' ').map((word) => {
+      return word.replace(word[0], word[0].toUpperCase());
+    });
+
+    return audioSource.join(' ');
   }
 
 	render() {
