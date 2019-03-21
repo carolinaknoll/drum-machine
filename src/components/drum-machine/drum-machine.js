@@ -64,56 +64,58 @@ export default class DrumMachine extends Component {
 	render() {
     return (
       <div id="drum-machine" className="drum-container">
-        <div id="display" className="display"></div>
+        <div id="display" className="display">
+          <p>Click/press a key to display a sound name here.</p>
+        </div>
 
         <div className="drum-pad-block">
           <div id="Q" className="drum-pad">
             <audio id="Q" className="clip" src="static/beep.wav"></audio>
-            <kbd>Q</kbd>
+            <p>Q</p>
           </div>
 
           <div id="W" className="drum-pad">
             <audio id="W" className="clip" src="static/fail-buzzer-04.wav"></audio>
-            <kbd>W</kbd>
+            <p>W</p>
           </div>
 
           <div id="E" className="drum-pad">
             <audio id="E" className="clip" src="static/hihat.wav"></audio>
-            <kbd>E</kbd>
+            <p>E</p>
           </div>
         </div>
 
         <div className="drum-pad-block">
           <div id="A" className="drum-pad">
             <audio id="A" className="clip" src="static/magic-chime-02.wav"></audio>
-            <kbd>A</kbd>
+            <p>A</p>
           </div>
 
           <div id="S" className="drum-pad">
             <audio id="S" className="clip" src="static/openhat.wav"></audio>
-            <kbd>S</kbd>
+            <p>S</p>
           </div>
 
           <div id="D" className="drum-pad">
             <audio id="D" className="clip" src="static/ride.wav"></audio>
-            <kbd>D</kbd>
+            <p>D</p>
           </div>
         </div>
 
         <div className="drum-pad-block">
           <div id="Z" className="drum-pad">
             <audio id="Z" className="clip" src="static/snare.wav"></audio>
-            <kbd>Z</kbd>
+            <p>Z</p>
           </div>
 
           <div id="X" className="drum-pad">
             <audio id="X" className="clip" src="static/squeeze-toy-5.wav"></audio>
-            <kbd>X</kbd>
+            <p>X</p>
           </div>
 
           <div id="C" className="drum-pad">
             <audio id="C" className="clip" src="static/whip-whoosh-01.wav"></audio>
-            <kbd>C</kbd>
+            <p>C</p>
           </div>
         </div>
       </div>

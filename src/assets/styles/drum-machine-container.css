@@ -10,6 +10,12 @@ body {
   height: 100%;
 }
 
+body p {
+  margin: 0;
+  padding: 0;
+  font-family: 'Titillium Web', sans-serif;
+}
+
 .content-container {
   flex: 1 0 auto;
   margin-bottom: 50px;
