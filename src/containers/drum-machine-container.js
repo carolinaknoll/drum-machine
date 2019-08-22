@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import DrumMachine from '../components/drum-machine/drum-machine';
-import Header from '../components/common/header';
-import Footer from '../components/common/footer';
+import DrumMachine from '../components/drum-machine';
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 export default class DrumMachineContainer extends Component {
   render() {
