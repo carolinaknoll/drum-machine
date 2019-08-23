@@ -18,14 +18,10 @@ export default class DrumMachine extends Component {
   // import multiple audio files without having to import one by one
   // https://stackoverflow.com/a/42118921
   importAudioFiles = () => {
-    this.importAll(require.context('../assets/static/', false, /\.(mp3|wav)$/));
-  }
+    let audioPathContext = require.context('../assets/static/', false, /\.(mp3|wav)$/);
+    let audioFilePaths =  audioPathContext.keys().map(audioPathContext);
 
-  importAll = (r) => {
-    let audioFilePaths = r.keys().map(r);
     this.setState({audioFilePaths: audioFilePaths});
-
-    return r.keys().map(r);
   }
 
   playSound = (e) => {
