@@ -5,12 +5,27 @@ export default class DrumMachine extends Component {
     super(props);
 
     this.state = {
+      audioFilePaths: [],
     };
   }
 
   componentDidMount() {
+    this.importAudioFiles();
     document.addEventListener('keydown', this.playSound);
     document.addEventListener('click', this.playSound);
+  }
+
+  // import multiple audio files without having to import one by one
+  // https://stackoverflow.com/a/42118921
+  importAudioFiles = () => {
+    this.importAll(require.context('../assets/static/', false, /\.(mp3|wav)$/));
+  }
+
+  importAll = (r) => {
+    let audioFilePaths = r.keys().map(r);
+    this.setState({audioFilePaths: audioFilePaths});
+
+    return r.keys().map(r);
   }
 
   playSound = (e) => {
@@ -63,6 +78,8 @@ export default class DrumMachine extends Component {
   }
 
 	render() {
+    let audioFilePaths = this.state.audioFilePaths;
+
     return (
       <div id="drum-machine" className="drum-container">
         <div id="display" className="display">
@@ -71,51 +88,51 @@ export default class DrumMachine extends Component {
 
         <div className="drum-pad-block">
           <div id="Q" className="drum-pad">
-            <audio id="Q" className="clip" data-audio-name="beep" src="static/beep.wav"></audio>
+            <audio id="Q" className="clip" data-audio-name="beep" src={audioFilePaths[0]}></audio>
             <p>Q</p>
           </div>
 
           <div id="W" className="drum-pad">
-            <audio id="W" className="clip" data-audio-name="fail-buzzer" src="static/fail-buzzer-04.wav"></audio>
+            <audio id="W" className="clip" data-audio-name="fail-buzzer" src={audioFilePaths[1]}></audio>
             <p>W</p>
           </div>
 
           <div id="E" className="drum-pad">
-            <audio id="E" className="clip" data-audio-name="hihat" src="static/hihat.wav"></audio>
+            <audio id="E" className="clip" data-audio-name="hihat" src={audioFilePaths[2]}></audio>
             <p>E</p>
           </div>
         </div>
 
         <div className="drum-pad-block">
           <div id="A" className="drum-pad">
-            <audio id="A" className="clip" data-audio-name="magic-chime" src="static/magic-chime-02.wav"></audio>
+            <audio id="A" className="clip" data-audio-name="magic-chime" src={audioFilePaths[3]}></audio>
             <p>A</p>
           </div>
 
           <div id="S" className="drum-pad">
-            <audio id="S" className="clip" data-audio-name="openhat" src="static/openhat.wav"></audio>
+            <audio id="S" className="clip" data-audio-name="openhat" src={audioFilePaths[4]}></audio>
             <p>S</p>
           </div>
 
           <div id="D" className="drum-pad">
-            <audio id="D" className="clip" data-audio-name="ride" src="static/ride.wav"></audio>
+            <audio id="D" className="clip" data-audio-name="ride" src={audioFilePaths[5]}></audio>
             <p>D</p>
           </div>
         </div>
 
         <div className="drum-pad-block">
           <div id="Z" className="drum-pad">
-            <audio id="Z" className="clip" data-audio-name="snare" src="static/snare.wav"></audio>
+            <audio id="Z" className="clip" data-audio-name="snare" src={audioFilePaths[6]}></audio>
             <p>Z</p>
           </div>
 
           <div id="X" className="drum-pad">
-            <audio id="X" className="clip" data-audio-name="squeeze-toy" src="static/squeeze-toy-5.wav"></audio>
+            <audio id="X" className="clip" data-audio-name="squeeze-toy" src={audioFilePaths[7]}></audio>
             <p>X</p>
           </div>
 
           <div id="C" className="drum-pad">
-            <audio id="C" className="clip" data-audio-name="whip-whoosh" src="static/whip-whoosh-01.wav"></audio>
+            <audio id="C" className="clip" data-audio-name="whip-whoosh" src={audioFilePaths[8]}></audio>
             <p>C</p>
           </div>
         </div>

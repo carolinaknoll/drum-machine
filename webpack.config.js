@@ -22,6 +22,13 @@ module.exports = {
           'url-loader?limit=10000',
           'img-loader'
         ]
+      },
+      {
+        test: /\.(mp3|wav)$/i,
+        loader: "file-loader",
+        options: {
+          name: "[path][name].[ext]"
+        }
       }
     ]
   },
