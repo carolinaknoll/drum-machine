@@ -34,22 +34,19 @@ export default class DrumMachine extends Component {
     }
   }
 
-  // get audio src > audio.getAttribute('src');
+  // get audio src name via second class name
   // loop through it and replace -s for spaces
   // uppercase first element after space
 
   displayAudioName = (audio) => {
-    let audioSource = audio.getAttribute('src');
+    let audioSource = audio.classList[1];
 
     let cleanedAudioSource = this.cleanAudioSource(audioSource);
     document.getElementById('display').innerHTML = cleanedAudioSource;
   }
 
   cleanAudioSource = (audioSource) => {
-    // todo: think of a regexp-only or native-code-only solution for the two lines below
-    audioSource = audioSource.replace(/-/g, ' ').replace(/.wav/g, '');
-    audioSource = audioSource.substring(audioSource.lastIndexOf("/") + 1);
-
+    audioSource = audioSource.replace(/-/g, ' ');
     return this.titleCaseAudioSource(audioSource);
   }
 
@@ -70,51 +67,51 @@ export default class DrumMachine extends Component {
 
         <div className="drum-pad-block">
           <div id="Q" className="drum-pad">
-            <audio id="Q" className="clip" src="static/beep.wav"></audio>
+            <audio id="Q" className="clip beep" src="static/beep.wav"></audio>
             <p>Q</p>
           </div>
 
           <div id="W" className="drum-pad">
-            <audio id="W" className="clip" src="static/fail-buzzer-04.wav"></audio>
+            <audio id="W" className="clip fail-buzzer" src="static/fail-buzzer-04.wav"></audio>
             <p>W</p>
           </div>
 
           <div id="E" className="drum-pad">
-            <audio id="E" className="clip" src="static/hihat.wav"></audio>
+            <audio id="E" className="clip hihat" src="static/hihat.wav"></audio>
             <p>E</p>
           </div>
         </div>
 
         <div className="drum-pad-block">
           <div id="A" className="drum-pad">
-            <audio id="A" className="clip" src="static/magic-chime-02.wav"></audio>
+            <audio id="A" className="clip magic-chime" src="static/magic-chime-02.wav"></audio>
             <p>A</p>
           </div>
 
           <div id="S" className="drum-pad">
-            <audio id="S" className="clip" src="static/openhat.wav"></audio>
+            <audio id="S" className="clip openhat" src="static/openhat.wav"></audio>
             <p>S</p>
           </div>
 
           <div id="D" className="drum-pad">
-            <audio id="D" className="clip" src="static/ride.wav"></audio>
+            <audio id="D" className="clip ride" src="static/ride.wav"></audio>
             <p>D</p>
           </div>
         </div>
 
         <div className="drum-pad-block">
           <div id="Z" className="drum-pad">
-            <audio id="Z" className="clip" src="static/snare.wav"></audio>
+            <audio id="Z" className="clip snare" src="static/snare.wav"></audio>
             <p>Z</p>
           </div>
 
           <div id="X" className="drum-pad">
-            <audio id="X" className="clip" src="static/squeeze-toy-5.wav"></audio>
+            <audio id="X" className="clip squeeze-toy" src="static/squeeze-toy-5.wav"></audio>
             <p>X</p>
           </div>
 
           <div id="C" className="drum-pad">
-            <audio id="C" className="clip" src="static/whip-whoosh-01.wav"></audio>
+            <audio id="C" className="clip whip-whoosh" src="static/whip-whoosh-01.wav"></audio>
             <p>C</p>
           </div>
         </div>
