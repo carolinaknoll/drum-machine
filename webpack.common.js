@@ -20,7 +20,7 @@ module.exports = {
         test: /\.(jpg|mp3|wav)$/i,
         loader: "file-loader",
         options: {
-          name: "./[path][name].[ext]"
+          name: "[name].[ext]"
         }
       }
     ]
@@ -30,7 +30,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "dist/"),
-    publicPath: "/",
+    publicPath: "./",
     filename: "bundle.js"
   },
   plugins: [
