@@ -20,7 +20,7 @@ module.exports = {
         test: /\.(jpg|mp3|wav)$/i,
         loader: "file-loader",
         options: {
-          name: "[path][name].[ext]"
+          name: "./[path][name].[ext]"
         }
       }
     ]
