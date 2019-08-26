@@ -17,14 +17,7 @@ module.exports = {
         use: ["style-loader", "css-loader"]
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        use: [
-          'url-loader?limit=10000',
-          'img-loader'
-        ]
-      },
-      {
-        test: /\.(mp3|wav)$/i,
+        test: /\.(jpg|mp3|wav)$/i,
         loader: "file-loader",
         options: {
           name: "[path][name].[ext]"
