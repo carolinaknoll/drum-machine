@@ -6,6 +6,8 @@ export default class DrumMachine extends Component {
 
     this.state = {
       audioFilePaths: [],
+      audioNames: ['beep', 'fail-buzzer', 'hihat', 'magic-chime', 'openhat', 'ride', 'snare', 'squeeze-toy', 'whip-whoosh'],
+      padLetters: ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C']
     };
   }
 
@@ -73,6 +75,19 @@ export default class DrumMachine extends Component {
     return audioSource.join(' ');
   }
 
+  createDrumPads = (range) => {
+    const { audioFilePaths, audioNames, padLetters } = this.state;
+
+    return range.map((index) => {
+      return (
+        <div id={padLetters[index]} className="drum-pad" key={padLetters[index]}>
+          <audio id={padLetters[index]} className="clip" data-audio-name={audioNames[index]} src={audioFilePaths[index]}></audio>
+          <p>{padLetters[index]}</p>
+        </div>
+      )
+    })
+  }
+
 	render() {
     let audioFilePaths = this.state.audioFilePaths;
 
@@ -83,54 +98,15 @@ export default class DrumMachine extends Component {
         </div>
 
         <div className="drum-pad-block">
-          <div id="Q" className="drum-pad">
-            <audio id="Q" className="clip" data-audio-name="beep" src={audioFilePaths[0]}></audio>
-            <p>Q</p>
-          </div>
-
-          <div id="W" className="drum-pad">
-            <audio id="W" className="clip" data-audio-name="fail-buzzer" src={audioFilePaths[1]}></audio>
-            <p>W</p>
-          </div>
-
-          <div id="E" className="drum-pad">
-            <audio id="E" className="clip" data-audio-name="hihat" src={audioFilePaths[2]}></audio>
-            <p>E</p>
-          </div>
+          {this.createDrumPads([0, 1, 2])}
         </div>
 
         <div className="drum-pad-block">
-          <div id="A" className="drum-pad">
-            <audio id="A" className="clip" data-audio-name="magic-chime" src={audioFilePaths[3]}></audio>
-            <p>A</p>
-          </div>
-
-          <div id="S" className="drum-pad">
-            <audio id="S" className="clip" data-audio-name="openhat" src={audioFilePaths[4]}></audio>
-            <p>S</p>
-          </div>
-
-          <div id="D" className="drum-pad">
-            <audio id="D" className="clip" data-audio-name="ride" src={audioFilePaths[5]}></audio>
-            <p>D</p>
-          </div>
+          {this.createDrumPads([3, 4, 5])}
         </div>
 
         <div className="drum-pad-block">
-          <div id="Z" className="drum-pad">
-            <audio id="Z" className="clip" data-audio-name="snare" src={audioFilePaths[6]}></audio>
-            <p>Z</p>
-          </div>
-
-          <div id="X" className="drum-pad">
-            <audio id="X" className="clip" data-audio-name="squeeze-toy" src={audioFilePaths[7]}></audio>
-            <p>X</p>
-          </div>
-
-          <div id="C" className="drum-pad">
-            <audio id="C" className="clip" data-audio-name="whip-whoosh" src={audioFilePaths[8]}></audio>
-            <p>C</p>
-          </div>
+          {this.createDrumPads([6, 7, 8])}
         </div>
       </div>
     );
